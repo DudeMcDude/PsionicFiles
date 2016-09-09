@@ -74,11 +74,17 @@ def IsConcentrate(args):
 	return 0
 	
 def PsionicFocusLost(attachee, args, evt_obj):
-	args.set_arg(0, 0) # set to unfocused
-	args.set_arg(1, 0) # set to unchecked
+	args.set_arg(0, 0) # set to unfocused state
+	args.set_arg(1, 0) # set to unchecked (no concentration)
 	# remove buff from character portrait
 	#args.set_arg(2, 0) # unused
 	#args.set_arg(3, 0) # unused
+	return 0
+	
+def PsiFocusEffectTooltip(attachee, args, evt_obj):
+	if not IsFocused(args):
+		return 0
+	evt_obj.append(53, -2, "Psionically Focused") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
 	return 0
 	
 psiFocus = PythonModifier("Psionic Focus", 4) 													# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
@@ -91,7 +97,8 @@ psiFocus.AddHook(ET_OnD20PythonSignal, "Expend Focus", PsionicFocusLost, ())				
 psiFocus.AddHook(ET_OnD20PythonActionCheck, "Meditate", OnPsionicFocusCheck, ())				# hook OnPsionicFocusCheck to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionPerform, "Meditate", OnPsionicFocusPerform, ())			# hook OnPsionicFocusPerform to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionCheck, "Concentrate Expend", OnPsionicConceCheck, ())		# hook OnPsionicConceCheck to event of radial menu option
-psiFocus.AddHook(ET_OnD20PythonActionCheck, "Concentrate Expend", OnPsionicConcePerform, ())	# hook OnPsionicConcePerform to event of radial menu option
+psiFocus.AddHook(ET_OnD20PythonActionPerform, "Concentrate Expend", OnPsionicConcePerform, ())	# hook OnPsionicConcePerform to event of radial menu option
+psiFocus.AddHook(ET_OnGetEffectTooltip, EK_NONE, PsiFocusEffectTooltip, ()) 			# creates a buff indicator above the character portrait
 
 # TODO somehow make a signal appear from psi_points every time depleted is increased, so that I can hook PsionicFocusLost to the event of psi_points being depleted when depleted >= 0
 # TODO figure out how to add a buff to the character portrait, simply the little flag that will be named "Psionic Focus", simply for player output purpose
