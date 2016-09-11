@@ -1,0 +1,3 @@
+skeleton "Sword_Celtic1.mae"
+
+animation "item_idle" "Sword_Celtic1.mae"
