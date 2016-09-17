@@ -30,8 +30,9 @@ def PsiPointsGetCurrent(attachee, args, evt_obj):
 def SubtractPsi(attachee, args, evt_obj):
 	depleted = args.get_arg(0) + evt_obj.data1
 	max_psi = attachee.d20_query("Max Psi")
-	if depleted > max_psi: # in case depleted is greater than max
+	if depleted >= max_psi: # in case depleted is greater than max
 		depleted = max_psi
+		attachee.d20_send_signal("Psi Depleted")
 	if depleted < 0: # in case depleted is less than 0
 		depleted = 0
 	args.set_arg(0, depleted) # adjust spent points by the amount specified in the event object
