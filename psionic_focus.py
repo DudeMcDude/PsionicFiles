@@ -4,10 +4,8 @@ import tpdp
 import char_class_utils
 import d20_action_utils
 
-
 psiMeditateEnum = 200
 psiFocusExpendConceEnum = 201
-
 
 def PsionicFocusRadial(attachee, args, evt_obj):
 	cur_psi = attachee.d20_query("Current Psi")
@@ -82,6 +80,9 @@ def IsConcentrate(args):
 	return 0
 	
 def PsionicFocusLost(attachee, args, evt_obj):
+	cur_psi = attachee.d20_query("Current Psi")
+	if cur_psi > 0:
+		return 0
 	args.set_arg(0, 0) # set to unfocused
 	args.set_arg(1, 0) # set to unchecked
 	# remove buff from character portrait
