@@ -80,9 +80,6 @@ def IsConcentrate(args):
 	return 0
 	
 def PsionicFocusLost(attachee, args, evt_obj):
-	cur_psi = attachee.d20_query("Current Psi")
-	if cur_psi > 0:
-		return 0
 	args.set_arg(0, 0) # set to unfocused
 	args.set_arg(1, 0) # set to unchecked
 	# remove buff from character portrait
@@ -90,17 +87,16 @@ def PsionicFocusLost(attachee, args, evt_obj):
 	#args.set_arg(3, 0) # unused
 	return 0
 	
-	
-psiFocus = PythonModifier("Psionic Focus", 4) 													# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
-psiFocus.AddHook(ET_OnD20PythonQuery, "Psionically Focused", PsionicallyFocused, ()) 			# hook PsionicallyFocused to event of python call
-psiFocus.AddHook(ET_OnD20PythonQuery, "Psionic Concentration", PsionicConcentration, ()) 		# hook PsionicConcentration to event of python call
-psiFocus.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsionicFocusLost, ()) 							# hook PsionicFocusLost to event of resting 8 hours safely
-#psiFocus.AddHook(?, ?, PsionicFocusLost, ()) 							   	# hook PsionicFocusLost to event of becoming unconscious
-psiFocus.AddHook(ET_OnD20PythonSignal, "Psi Depleted", PsionicFocusLost, ()) 				# hook PsionicFocusLost to event of having 0 psi points
-psiFocus.AddHook(ET_OnD20PythonSignal, "Expend Focus", PsionicFocusLost, ())					# hook PsionicFocusLost to event of python signal
-psiFocus.AddHook(ET_OnD20PythonActionCheck, psiMeditateEnum, OnPsionicFocusCheck, ())				# hook OnPsionicFocusCheck to event of radial menu option
-psiFocus.AddHook(ET_OnD20PythonActionPerform, psiMeditateEnum, OnPsionicFocusPerform, ())			# hook OnPsionicFocusPerform to event of radial menu option
-psiFocus.AddHook(ET_OnD20PythonActionCheck, psiFocusExpendConceEnum, OnPsionicConceCheck, ())		# hook OnPsionicConceCheck to event of radial menu option
+psiFocus = PythonModifier("Psionic Focus", 4) 							# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
+psiFocus.AddHook(ET_OnD20PythonQuery, "Psionically Focused", PsionicallyFocused, ()) 		# hook PsionicallyFocused to event of python call
+psiFocus.AddHook(ET_OnD20PythonQuery, "Psionic Concentration", PsionicConcentration, ()) 	# hook PsionicConcentration to event of python call
+psiFocus.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsionicFocusLost, ()) 				# hook PsionicFocusLost to event of resting 8 hours safely
+#psiFocus.AddHook(?, ?, PsionicFocusLost, ()) 							# hook PsionicFocusLost to event of becoming unconscious
+psiFocus.AddHook(ET_OnD20PythonSignal, "Psi Depleted", PsionicFocusLost, ()) 			# hook PsionicFocusLost to event of having 0 psi points
+psiFocus.AddHook(ET_OnD20PythonSignal, "Expend Focus", PsionicFocusLost, ())			# hook PsionicFocusLost to event of python signal
+psiFocus.AddHook(ET_OnD20PythonActionCheck, psiMeditateEnum, OnPsionicFocusCheck, ())		# hook OnPsionicFocusCheck to event of radial menu option
+psiFocus.AddHook(ET_OnD20PythonActionPerform, psiMeditateEnum, OnPsionicFocusPerform, ())	# hook OnPsionicFocusPerform to event of radial menu option
+psiFocus.AddHook(ET_OnD20PythonActionCheck, psiFocusExpendConceEnum, OnPsionicConceCheck, ())	# hook OnPsionicConceCheck to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionCheck, psiFocusExpendConceEnum, OnPsionicConcePerform, ())	# hook OnPsionicConcePerform to event of radial menu option
 
 
