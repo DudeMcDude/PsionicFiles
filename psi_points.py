@@ -30,8 +30,9 @@ def PsiPointsGetCurrent(attachee, args, evt_obj):
 def SubtractPsi(attachee, args, evt_obj):
 	depleted = args.get_arg(0) + evt_obj.data1
 	max_psi = attachee.d20_query("Max Psi")
-	if depleted > max_psi: # in case depleted is greater than max
+	if depleted >= max_psi: # in case depleted is greater than max
 		depleted = max_psi
+		attachee.d20_send_signal("Psi Depleted")
 	if depleted < 0: # in case depleted is less than 0
 		depleted = 0
 	args.set_arg(0, depleted) # adjust spent points by the amount specified in the event object
@@ -52,10 +53,10 @@ def PsiPointsNewDay(attachee, args, evt_obj):
 	#args.set_arg(3, 0) # unused
 	return 0
 
-psiPoints = PythonModifier("Psi Points", 4) 									# arg0 - depleted psi points; arg1 - max psi points; arg2 - unused; arg3 - unused
-psiPoints.AddHook(ET_OnD20PythonQuery, "Max Psi", PsiPointsGetMax, ()) 			# hook PsiPointsGetMax to event of python query
+psiPoints = PythonModifier("Psi Points", 4) 					# arg0 - depleted psi points; arg1 - max psi points; arg2 - unused; arg3 - unused
+psiPoints.AddHook(ET_OnD20PythonQuery, "Max Psi", PsiPointsGetMax, ()) 		# hook PsiPointsGetMax to event of python query
 psiPoints.AddHook(ET_OnD20PythonQuery, "Base Max Psi", PsiPointsGetBaseMax, ()) # hook PsiPointsGetBaseMax to event of python query
 psiPoints.AddHook(ET_OnD20PythonQuery, "Current Psi", PsiPointsGetCurrent, ()) 	# hook PsiPointsGetCurrent to event of python query
-psiPoints.AddHook(ET_OnD20PythonSignal, "Subtract Psi", SubtractPsi, ())		# hook SubtractPsi to event of python signal
+psiPoints.AddHook(ET_OnD20PythonSignal, "Subtract Psi", SubtractPsi, ())	# hook SubtractPsi to event of python signal
 psiPoints.AddHook(ET_OnD20PythonSignal, "Increase Max Psi", IncreaseMaxPsi, ()) # hook IncreaseMaxPsi to event of python signal
-psiPoints.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsiPointsNewDay, ()) 			# hook PsiPointsNewDay to event of resting 8 hours safely
+psiPoints.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsiPointsNewDay, ()) 		# hook PsiPointsNewDay to event of resting 8 hours safely
