@@ -2,4 +2,4 @@ name: Mind Blade Enhancement
 flags: 2097160
 prereqs:
 description: At 6th level, a soulknife gains the ability to enhance his mind blade.
-prereq descr: Soulknife level 6
+prereq descr: Soulknife level 6th
