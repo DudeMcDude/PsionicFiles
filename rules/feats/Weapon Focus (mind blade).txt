@@ -1,0 +1,5 @@
+name: Weapon Focus (mind blade)
+flags: 2097160
+prereqs:
+description: Choose one type of weapon; you are especially good at using this type of weapon.
+prereq descr: Proficiency with selected weapon, base attack bonus +1
