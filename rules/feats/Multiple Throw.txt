@@ -1,0 +1,5 @@
+name: Multiple Throw
+flags: 2097160
+prereqs:
+description: At 17th level and higher, a soulknife can throw a number of mind blades per round equal to the number of melee attacks he could make.
+prereq descr: Soulknife level 17th
