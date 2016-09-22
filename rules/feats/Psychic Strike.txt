@@ -1,0 +1,5 @@
+name: Psychic Strike
+flags: 2097160
+prereqs:
+description: As a move action, a soulknife of 3rd level or higher can imbue his mind blade with destructive psychic energy.
+prereq descr: Soulknife level 3
