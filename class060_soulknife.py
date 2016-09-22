@@ -2,9 +2,14 @@ from toee import *
 import char_class_utils
 
 class_feats = {
-1: (feat_armor_proficiency_light, feat_shield_proficiency, feat_simple_weapon_proficiency, "feat_exotic_weapon_proficiency_mind blade", "feat_weapon_focus_mind_blade", "feat_wild_talent",),
-6: ("feat_speed_of_thought",),
-9: ("feat_greater_weapon_focus_mind_blade",),
+1: (feat_armor_proficiency_light, feat_shield_proficiency, feat_simple_weapon_proficiency, "Mind Blade", "Weapon Focus (mind blade)", "Wild Talent",),
+2: ("Throw Mind Blade",),
+3: ("Psychic Strike",),
+5: ("Free Draw", "Shape Mind Blade",),
+6: ("Mind Blade Enhancement", "Speed of Thought",),
+9: ("Bladewind", "Greater Weapon Focus (mind blade)",),
+13: ("Knife to the Soul",),
+17: ("Multiple Throw",),
 }
 
 class_skills = ("skill_autohypnosis", skill_concentration, skill_hide, skill_listen, skill_move_silently, skill_spot, skill_tumble)
