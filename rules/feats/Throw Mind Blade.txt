@@ -2,4 +2,4 @@ name: Throw Mind Blade
 flags: 2097160
 prereqs:
 description: A soul knife of 2nd level or higher can throw his mind blade as a ranged weapon with a range increment of 30 feet.0xB0xB Whether or not the attack hits, a thrown mind blade then dissipates. A soulknife of 3rd level or higher can make a psychic strike with a thrown mind blade and can use the blade in conjunction with other special abilities (such as Knife to the Soul). 
-prereq descr: Soulknife level 2
+prereq descr: Soulknife level 2nd
