@@ -1,5 +1,5 @@
 name: Knife to the Soul
 flags: 2097160
 prereqs:
-description: Beginning at 13th level, when a soulknife executes a psychic strike, he can choose to substitute Intelligence, Wisdom, or Charisma damage (his choice) for extra dice of damage. For each die of extra damage he gives up, he deals 1 point of damage to the ability score he chooses. A soulknife can combine extra dice of damage and ability damage in any combination.0xB0xB The soulknife decides which ability score his psychic strike damages and the division of ability damage and extra dice of damage when he imbues his mind blade with the psychic strike energy. 
+description: Beginning at 13th level, when a soulknife executes a psychic strike, he can choose to substitute Intelligence, Wisdom, or Charisma damage (his choice) for extra dice of damage. For each die of extra damage he gives up, he deals 1 point of damage to the ability score he chooses. A soulknife can combine extra dice of damage and ability damage in any combination. The soulknife decides which ability score his psychic strike damages and the division of ability damage and extra dice of damage when he imbues his mind blade with the psychic strike energy. 
 prereq descr: Soulknife level 13th
