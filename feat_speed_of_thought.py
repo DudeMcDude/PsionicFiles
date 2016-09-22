@@ -15,7 +15,7 @@ def SpeedOfThought(attachee, args, evt_obj):
         if armorFlags == ARMOR_TYPE_HEAVY:
             return 0
             
-  evt_obj.bonus_list.add_from_feat(10, 41, 114, "Speed of Thought") # Add 10 insight bonus to move speed
+  evt_obj.bonus_list.add_from_feat(10, 18, 114, "Speed of Thought") # Add 10 insight bonus to move speed
   return 0
 
 feat_speed_of_thought = PythonModifier("feat_speed_of_thought", 1)
