@@ -1,0 +1,5 @@
+name: Greater Weapon Focus (mind blade)
+flags: 2097160
+prereqs:
+description: Choose a type of weapon for which you have already selected Weapon Focus and you are especially good at using this weapon.
+prereq descr: Proficiency with selected weapon, Weapon Focus w/ selected weapon
