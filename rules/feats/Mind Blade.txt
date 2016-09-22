@@ -2,4 +2,4 @@ name: Mind Blade
 flags: 2097160
 prereqs:
 description: As a move action, a soulknife can create a semisolid blade composed of psychic energy distilled from his own mind.
-prereq descr: Soulknife level 1
+prereq descr: Soulknife level 1st
