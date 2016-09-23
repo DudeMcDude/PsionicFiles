@@ -1,5 +1,5 @@
 name: Speed of Thought
 flags: 2097152
-prereqs: 4 13
+prereqs: 4 13 300 1
 description: As long as you are psionically focused and not wearing heavy armor, you gain an insight bonus to your speed of 10 feet.
 prereq descr: Power point reserve, Wis 13
