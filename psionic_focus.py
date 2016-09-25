@@ -31,9 +31,6 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 			# we are already focused and concentrated, so we want the same as above but with the box already checked
 	radialAction.add_child_to_standard(attachee, tpdp.RadialMenuStandardNode.Skills) # add meditate to radial skill menu
 	return 0
-
-skillSpecObj = PythonModifier("Psionic Conce", 0) # condition needs to be one that applies to all PC's!
-skillSpecObj.AddHook(ET_OnBuildRadialMenuEntry, EK_NONE, PsionicFocusRadial, ())
 		
 def OnPsionicFocusCheck(attachee, args, evt_obj):
 	if IsFocused(args): # if already focused
@@ -95,6 +92,7 @@ def PsiFocusEffectTooltip(attachee, args, evt_obj):
 	return 0
 	
 psiFocus = PythonModifier("Psionic Focus", 4) 							# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
+psiFocus.AddHook(ET_OnBuildRadialMenuEntry, EK_NONE, PsionicFocusRadial, ())			# hook PsionicFocusRadial to event of building radial menu
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionically Focused", PsionicallyFocused, ()) 		# hook PsionicallyFocused to event of python call
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionic Concentration", PsionicConcentration, ()) 	# hook PsionicConcentration to event of python call
 psiFocus.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsionicFocusLost, ()) 				# hook PsionicFocusLost to event of resting 8 hours safely
