@@ -38,3 +38,9 @@ def OnGetSaveThrowWill(attachee, args, evt_obj):
 	return 0
 
 #### class modifiers
+def SoulknifeEnhancementBonus(attachee, args, evt_obj):
+	slkLvl = attachee.stat_level_get(classEnum)
+	bonval = slkLvl / 4
+	# add as enhancement bonus to attack rolls and damage rolls for mind blade weapon type
+	
+
