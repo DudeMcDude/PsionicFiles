@@ -19,14 +19,15 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 		isConcentrate = attachee.d20_query("Psionic Concentration")
 	if not isFocused:
 		if (attachee.d20_query("Current Psi") > 0) and (attachee.skill_level_get(skill_concentration) > 0): # attachee has 1 or more power points currently available and at least 1 point in concentration
-			#radialAction = tpdp.RadialMenuEntryPythonAction(?, D20A_PYTHON_ACTION, "Meditate", ?, ?)
+			radialAction = tpdp.RadialMenuEntryPythonAction(-1, D20A_PYTHON_ACTION, psiMeditateEnum, 0, "TAG_INTERFACE_HELP")
 		else:
 			return 0 # do not add to radial skill menu
 	else:
 		if not isConcentrate:
+			radialAction = tpdp.RadialMenuEntryToggle(psiFocusExpendConceEnum, "TAG_INTERFACE_HELP")
 			# we are already focused, but not concentrated, so we want to always display checkbox action in radial menu, as psi and conce points are only a prereq for meditating, not after the fact
-			#radialAction = tpdp.RadialmenuEntryPythonAction(?, D20A_PYTHON_ACTION, "Concentrate Expend", ?, ?)
 		else:
+			radialAction = tpdp.RadialMenuEntryToggle(psiFocusExpendConceEnum, "TAG_INTERFACE_HELP")
 			# we are already focused and concentrated, so we want the same as above but with the box already checked
 	radialAction.add_child_to_standard(attachee, tpdp.RadialMenuStandardNode.Skills) # add meditate to radial skill menu
 	return 0
