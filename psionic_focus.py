@@ -32,7 +32,7 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 	radialAction.add_child_to_standard(attachee, tpdp.RadialMenuStandardNode.Skills) # add meditate to radial skill menu
 	return 0
 
-#skillSpecObj = PythonModifier(?, 0) # condition needs to be one that applies to all PC's!
+skillSpecObj = PythonModifier("Psionic Conce", 0) # condition needs to be one that applies to all PC's!
 skillSpecObj.AddHook(ET_OnBuildRadialMenuEntry, EK_NONE, PsionicFocusRadial, ())
 		
 def OnPsionicFocusCheck(attachee, args, evt_obj):
