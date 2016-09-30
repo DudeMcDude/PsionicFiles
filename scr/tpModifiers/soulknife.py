@@ -10,7 +10,7 @@ def GetConditionName():
 
 print "Registering " + GetConditionName()
 
-classEnum = Soulknife
+classEnum = stat_level_soulknife
 
 ###################################################
 
