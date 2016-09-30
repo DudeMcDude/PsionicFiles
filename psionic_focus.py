@@ -44,7 +44,6 @@ def OnPsionicFocusPerform(attachee, args, evt_obj):
 		return 0	
 	args.set_arg(0, 1) # set to focused
 	args.set_arg(1, 0) # set to unchecked
-	# add buff to character portrait
 	return 0
 	
 def OnPsionicConceCheck(attachee, args, evt_obj):
@@ -82,23 +81,28 @@ def IsConcentrate(args):
 def PsionicFocusLost(attachee, args, evt_obj):
 	args.set_arg(0, 0) # set to unfocused
 	args.set_arg(1, 0) # set to unchecked
-	# remove buff from character portrait
 	#args.set_arg(2, 0) # unused
 	#args.set_arg(3, 0) # unused
 	return 0
-	
+
+def PsiFocusEffectTooltip(attachee, args, evt_obj):
+	if not IsFocused(args):
+		return 0
+	evt_obj.append(169, -2, "Psionically Focused") # TODO: expand range of icons
+	return 0
+
 psiFocus = PythonModifier("Psionic Focus", 4) 							# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionically Focused", PsionicallyFocused, ()) 		# hook PsionicallyFocused to event of python call
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionic Concentration", PsionicConcentration, ()) 	# hook PsionicConcentration to event of python call
 psiFocus.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsionicFocusLost, ()) 				# hook PsionicFocusLost to event of resting 8 hours safely
-#psiFocus.AddHook(?, ?, PsionicFocusLost, ()) 							# hook PsionicFocusLost to event of becoming unconscious
+psiFocus.AddHook(ET_OnD20PythonSignal, "Knocked Unconscious", PsionicFocusLost, ()) 		# hook PsionicFocusLost to event of becoming unconscious
 psiFocus.AddHook(ET_OnD20PythonSignal, "Psi Depleted", PsionicFocusLost, ()) 			# hook PsionicFocusLost to event of having 0 psi points
 psiFocus.AddHook(ET_OnD20PythonSignal, "Expend Focus", PsionicFocusLost, ())			# hook PsionicFocusLost to event of python signal
 psiFocus.AddHook(ET_OnD20PythonActionCheck, psiMeditateEnum, OnPsionicFocusCheck, ())		# hook OnPsionicFocusCheck to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionPerform, psiMeditateEnum, OnPsionicFocusPerform, ())	# hook OnPsionicFocusPerform to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionCheck, psiFocusExpendConceEnum, OnPsionicConceCheck, ())	# hook OnPsionicConceCheck to event of radial menu option
 psiFocus.AddHook(ET_OnD20PythonActionCheck, psiFocusExpendConceEnum, OnPsionicConcePerform, ())	# hook OnPsionicConcePerform to event of radial menu option
-
+psiFocus.AddHook(ET_OnGetEffectTooltip, EK_NONE, PsiFocusEffectTooltip, ())			# 
 
 # TODO figure out how to add a buff to the character portrait, simply the little flag that will be named "Psionic Focus", simply for player output purpose
 # TODO make it so meditating is a full round action and provokes an attack of opportunity
