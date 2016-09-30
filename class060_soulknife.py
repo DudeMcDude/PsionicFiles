@@ -1,6 +1,15 @@
 from toee import *
 import char_class_utils
 
+###################################################
+
+def GetConditionName(): # used by API
+	return "Soulknife"
+	
+classEnum = stat_level_soulknife
+
+###################################################
+
 class_feats = {
 1: (feat_armor_proficiency_light, feat_shield_proficiency, feat_simple_weapon_proficiency, "Mind Blade", "Weapon Focus (mind blade)", "Wild Talent",),
 2: ("Throw Mind Blade",),
