@@ -11,4 +11,4 @@ def WildTalentMaxPsi(attachee, args, evt_obj):
 
 feat_wild_talent = PythonModifier("feat_wild_talent", 1)
 feat_wild_talent.MapToFeat("Wild Talent")
-feat_wild_talent.AddHook(ET_OnD20PythonQuery, "Max Psi", WildTalentMaxPsi, ())
+feat_wild_talent.AddHook(ET_OnD20PythonQuery, "Base Max Psi", WildTalentMaxPsi, ())
