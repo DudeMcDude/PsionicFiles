@@ -8,9 +8,6 @@ psiMeditateEnum = 200
 psiFocusExpendConceEnum = 201
 
 def PsionicFocusRadial(attachee, args, evt_obj):
-	cur_psi = attachee.d20_query("Current Psi")
-	if cur_psi <= 0:
-		return 0
 	isAdded = attachee.condition_add_with_args("Psionic Focus",0,0) # adds the "Psionic Focus" condition on first radial menu build
 	isFocused = 0
 	isConcentrate = 0
