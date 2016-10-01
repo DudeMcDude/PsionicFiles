@@ -83,9 +83,8 @@ def PsionicFocusLost(attachee, args, evt_obj):
 	return 0
 
 def BeginRoundUnconscious(attachee, args, evt_obj):
-	# get attachee character packet - don't know how
-	# check if attachee contains unconscious condition
-	# if yes, call python signal "Expend Focus"
+	if attachee.is_unconscious():
+		attachee.d20_send_signal("Expend Focus")
 	return 0
 	
 def PsiFocusEffectTooltip(attachee, args, evt_obj):
