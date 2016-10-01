@@ -23,6 +23,10 @@ def PsychicStrikeDamage(attachee, args, evt_obj):
     return 0
   if tgt.is_category_type(mc_type_undead):
     return 0
+  if tgt.is_category_type(mc_type_elemental):
+    return 0
+  if tgt.is_category_type(mc_type_construct):
+    return 0
   # todo immune to mind affecting / mindless
   
   slkLvl = attachee.stat_level_get(stat_level_soulknife)
@@ -51,7 +55,7 @@ def OnPsyStrikeCheck(attachee, args, evt_obj):
   return 0
 
 def OnPsyStrikePerform(attachee, args, evt_obj):
-	args.set_arg(0, 1)  # Set to embued
+  args.set_arg(0, 1)  # Set to embued
   return 0 
   
   
@@ -59,7 +63,7 @@ def PsyStrikeEffectTooltip(attachee, args, evt_obj):
   isEmbued = attachee.d20_query("PsyStrike Embued")
   if not isEmbued:
     return 0
-  evt_obj.append(53, -2, "Psy Strike Eenrgy") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
+  evt_obj.append(53, -2, "Psychic Strike Eenrgy") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
   return 0
 
 psychicStrike = PythonModifier("Psychic Strike", 1)                                                 # arg0 - embued with energy
