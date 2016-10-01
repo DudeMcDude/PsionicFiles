@@ -8,9 +8,6 @@ psiMeditateEnum = 200
 psiFocusExpendConceEnum = 201
 
 def PsionicFocusRadial(attachee, args, evt_obj):
-	cur_psi = attachee.d20_query("Current Psi")
-	if cur_psi <= 0:
-		return 0
 	isAdded = attachee.condition_add_with_args("Psionic Focus",0,0) # adds the "Psionic Focus" condition on first radial menu build
 	isFocused = 0
 	isConcentrate = 0
@@ -84,6 +81,11 @@ def PsionicFocusLost(attachee, args, evt_obj):
 	#args.set_arg(2, 0) # unused
 	#args.set_arg(3, 0) # unused
 	return 0
+
+def BeginRoundUnconscious(attachee, args, evt_obj):
+	if attachee.is_unconscious():
+		attachee.d20_send_signal("Expend Focus")
+	return 0
 	
 def PsiFocusEffectTooltip(attachee, args, evt_obj):
 	if not IsFocused(args):
@@ -96,7 +98,7 @@ psiFocus.AddHook(ET_OnBuildRadialMenuEntry, EK_NONE, PsionicFocusRadial, ())			#
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionically Focused", PsionicallyFocused, ()) 		# hook PsionicallyFocused to event of python call
 psiFocus.AddHook(ET_OnD20PythonQuery, "Psionic Concentration", PsionicConcentration, ()) 	# hook PsionicConcentration to event of python call
 psiFocus.AddHook(ET_OnNewDay, EK_NEWDAY_REST, PsionicFocusLost, ()) 				# hook PsionicFocusLost to event of resting 8 hours safely
-#psiFocus.AddHook(?, ?, PsionicFocusLost, ()) 							# hook PsionicFocusLost to event of becoming unconscious
+psiFocus.AddHook(ET_OnBeginRound, EK_NONE, BeginRoundUnconscious, ()) 				# hook BeginRoundUnconscious to event of begin round - checking for character being unconscious
 psiFocus.AddHook(ET_OnD20PythonSignal, "Psi Depleted", PsionicFocusLost, ()) 			# hook PsionicFocusLost to event of having 0 psi points
 psiFocus.AddHook(ET_OnD20PythonSignal, "Expend Focus", PsionicFocusLost, ())			# hook PsionicFocusLost to event of python signal
 psiFocus.AddHook(ET_OnD20PythonActionCheck, psiMeditateEnum, OnPsionicFocusCheck, ())		# hook OnPsionicFocusCheck to event of radial menu option
