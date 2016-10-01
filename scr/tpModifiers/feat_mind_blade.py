@@ -28,8 +28,7 @@ def OnMindBladeCheck(attachee, args, evt_obj):
 def OnMindBladePerform(attachee, args, evt_obj):
 	if not CanManifestMindBlade(attachee):
 		return 0
-	
-	# Play Mind Blade Manifest particle effect
+	game.particles("Mind Blade Manifest", attachee)
 	# TODO: Find proper SFX and play it here
 	# Delay 1.3 seconds (time it takes for effect to get to where Mind Blade should visually appear
 	# Create Mind Blade object in primary hand of attachee
