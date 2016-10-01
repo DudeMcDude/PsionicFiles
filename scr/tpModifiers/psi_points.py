@@ -10,11 +10,12 @@ def PsiPoints(attachee, args, evt_obj):
 	return 0
 	
 def PsiPointsGetMax(attachee, args, evt_obj):
-	evt_obj.return_val += args.get_arg(1)
+	base_max_psi = attachee.d20_query("Base Max Psi")
+	evt_obj.return_val += base_max_psi
 	return 0
 	
 def PsiPointsGetBaseMax(attachee, args, evt_obj):
-	evt_obj.return_val = args.get_arg(1)
+	evt_obj.return_val += args.get_arg(1)
 	return 0
 	
 def PsiPointsGetCurrent(attachee, args, evt_obj):
