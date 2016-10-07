@@ -10,7 +10,7 @@ def PsychicStrikeRadial(attachee, args, evt_obj):
   isEmbued = attachee.d20_query("PsyStrike Embued")
   if isEmbued:
     return 0
-  radial_action = tpdp.RadialMenuEntryPythonAction(-1, D20A_PYTHON_ACTION, psiStrikeEnum, 0, "TAG_INTERFACE_HELP")
+  radial_action = tpdp.RadialMenuEntryPythonAction("Psychic Strike", D20A_PYTHON_ACTION, psiStrikeEnum, 0, "TAG_INTERFACE_HELP")
   radialAction.add_child_to_standard(attachee, tpdp.RadialMenuStandardNode.Class)
   return 0
   
