@@ -5,7 +5,7 @@ import char_class_utils
 import d20_action_utils
 
 def MindBladeRadial(attachee, args, evt_obj):
-	radial_action = tpdp.RadialMenuEntryPythonAction(-1, D20A_PYTHON_ACTION, "Mind Blade Radial", 0, "TAG_INTERFACE_HELP")
+	radial_action = tpdp.RadialMenuEntryPythonAction("Mind Blade", D20A_PYTHON_ACTION, "Mind Blade Radial", 0, "TAG_INTERFACE_HELP")
 	radialAction.add_child_to_standard(attachee, tpdp.RadialMenuStandardNode.Class)
 	
 def CanManifestMindBlade(attachee):
