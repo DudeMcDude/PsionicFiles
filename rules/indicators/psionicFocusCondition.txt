@@ -1,0 +1,5 @@
+ID_string: PSI_FOCUS
+effect_type: 2
+texture_file: art\interface\player_conditions\conditions\psionic-focus.tga
+help_topic: TAG_ROOT
+tooltip_base_text: Psionically Focused
