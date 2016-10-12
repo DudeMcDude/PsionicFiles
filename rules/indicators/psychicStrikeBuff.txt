@@ -1,0 +1,5 @@
+ID_string: PSY_STRIKE
+effect_type: 0
+texture_file: art\interface\player_conditions\buffs\Psychic Strike.tga
+help_topic: TAG_ROOT
+tooltip_base_text: Psychic Strike Imbued
