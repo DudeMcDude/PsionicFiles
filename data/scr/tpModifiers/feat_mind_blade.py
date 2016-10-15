@@ -4,7 +4,7 @@ import tpdp
 import char_class_utils
 import d20_action_utils
 
-mindBladeEnum = 203
+mindBladeEnum = 6000
 
 def MindBladeRadial(attachee, args, evt_obj):
 	radial_action = tpdp.RadialMenuEntryPythonAction("Mind Blade", D20A_PYTHON_ACTION, mindBladeEnum, 0, "TAG_INTERFACE_HELP")
