@@ -10,4 +10,4 @@ psiFocusExpendConceEnum = 201
 
 psiStrikeEnum = 202
 
-mindBladeEnum = 203
+mindBladeEnum = 6000
