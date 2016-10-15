@@ -4,7 +4,7 @@ import tpdp
 import char_class_utils
 import d20_action_utils
 
-psiStrikeEnum = 202 # enum for Psy Strike action
+psiStrikeEnum = 6001 # enum for Psy Strike action
 
 def PsychicStrikeRadial(attachee, args, evt_obj):
   isEmbued = attachee.d20_query("PsyStrike Embued")
