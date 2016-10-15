@@ -16,7 +16,7 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 		isConcentrate = attachee.d20_query("Psionic Concentration")
 	if not isFocused:
 		if (attachee.d20_query("Current Psi") > 0) and (attachee.skill_level_get(skill_concentration) > 0): # attachee has 1 or more power points currently available and at least 1 point in concentration
-			radialAction = tpdp.RadialMenuEntryPythonAction("Meditate", D20A_PYTHON_ACTION, psiMeditateEnum, 0, "TAG_INTERFACE_HELP")
+			radialAction = tpdp.RadialMenuEntryPythonAction(-1, D20A_PYTHON_ACTION, psiMeditateEnum, 0, "TAG_INTERFACE_HELP")
 			x = attachee.d20_query("Current Psi")
 			y = attachee.d20_query("Max Psi")
 			radialAction.flags |= 0x6 # denotes should render "x/y"
