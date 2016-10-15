@@ -63,7 +63,7 @@ def PsyStrikeEffectTooltip(attachee, args, evt_obj):
   isEmbued = attachee.d20_query("PsyStrike Embued")
   if not isEmbued:
     return 0
-  evt_obj.append(53, -2, "Psychic Strike Eenrgy") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
+  evt_obj.append(tpdp.hash("PSY_STRIKE"), -2, "Psychic Strike Imbued") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
   return 0
 
 psychicStrike = PythonModifier("Psychic Strike", 1)                                                 # arg0 - embued with energy
