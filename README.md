@@ -12,3 +12,20 @@ mindBladeEnum = 6000
 
 psiStrikeEnum = 6001
 
+Current additions:
+
+-Power Points (not implemented in all UI yet)
+
+-Soulknife Class (not all feats finished yet)
+
+--Mind Blade (unfinished)
+
+--Psychic Strike (unfinished)
+
+-Concentration Psionic Focus
+
+Feats;
+
+-Wild Talent
+
+-Speed of Thought
