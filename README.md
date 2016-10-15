@@ -8,6 +8,6 @@ psiMeditateEnum = 200
 
 psiFocusExpendConceEnum = 201
 
-psiStrikeEnum = 202
+psiStrikeEnum = 6001
 
 mindBladeEnum = 6000
