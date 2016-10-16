@@ -95,7 +95,7 @@ def BeginRoundUnconscious(attachee, args, evt_obj):
 def PsiFocusEffectTooltip(attachee, args, evt_obj):
 	if not IsFocused(args):
 		return 0
-	evt_obj.append(tpdp.hash("PSI_FOCUS"), -2, -1) # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
+	evt_obj.append(tpdp.hash("PSI_FOCUS"), -2, "") # 53 is the indicator graphical index; buffs (indicators above portraits) are in the 0-89 range IIRC; will have to expand this to support new icons
 	return 0
 	
 psiFocus = PythonModifier("Psionic Focus", 4) 							# arg0 - is focused; arg1 - is checked for concentration; arg2 - unused; arg3 - unused
