@@ -58,6 +58,6 @@ def MindBladeWeaponGlow(attachee, args, evt_obj):
 	return 0
 
 
-mindBlade = PythonModifier("Mind Blade", 0)
+mindBlade = PythonModifier("Mind Blade", 5) # args(2) is the inventory index (set by the engine), the rest reserved
 mindBlade.AddHook(ET_OnDealingDamage2, EK_NONE, MindBladeMagicDamage, ())
 mindBlade.AddHook(ET_OnWeaponGlowType, EK_NONE, MindBladeWeaponGlow, ())
