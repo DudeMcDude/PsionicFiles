@@ -37,6 +37,9 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 def OnPsionicFocusCheck(attachee, args, evt_obj):
 	if IsFocused(args): # if already focused
 		evt_obj.return_val = AEC_INVALID_ACTION
+	roll = game.random_range(1,20) + attachee.skill_level_get(skill_concentration)
+	if roll < 20:
+		evt_obj.return_val = AEC_INVALID_ACTION
 	return 0
 	
 def OnPsionicFocusPerform(attachee, args, evt_obj):
