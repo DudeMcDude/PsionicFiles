@@ -5,7 +5,13 @@ import char_class_utils
 
 def GetConditionName(): # used by API
 	return "Soulknife"
-	
+
+def GetCategory():
+	return "Core 3.5 Ed Classes"
+
+def GetClassDefinitionFlags():
+	return CDF_BaseClass
+
 classEnum = stat_level_soulknife
 
 ###################################################
