@@ -37,14 +37,16 @@ def PsionicFocusRadial(attachee, args, evt_obj):
 def OnPsionicFocusCheck(attachee, args, evt_obj):
 	if IsFocused(args): # if already focused
 		evt_obj.return_val = AEC_INVALID_ACTION
-	roll = game.random_range(1,20) + attachee.skill_level_get(skill_concentration)
-	if roll < 20:
-		evt_obj.return_val = AEC_INVALID_ACTION
 	return 0
 	
 def OnPsionicFocusPerform(attachee, args, evt_obj):
 	if IsFocused(args): # if already focused
 		return 0	
+	roll = game.random_range(1,20) + attachee.skill_level_get(skill_concentration)
+	evt_obj.skill_roll(skill_concentration, 20, -1)
+	if roll < 20:
+		evt_obj.return_val = AEC_INVALID_ACTION
+		return 0
 	args.set_arg(0, 1) # set to focused
 	args.set_arg(1, 0) # set to unchecked
 	# add buff to character portrait
