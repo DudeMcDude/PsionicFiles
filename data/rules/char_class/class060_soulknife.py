@@ -12,6 +12,9 @@ def GetCategory():
 def GetClassDefinitionFlags():
 	return CDF_BaseClass
 
+def GetClassHelpTopic():
+	return "TAG_SOUL_KNIVES"
+
 classEnum = stat_level_soulknife
 
 ###################################################
