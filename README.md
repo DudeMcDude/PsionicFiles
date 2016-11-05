@@ -22,10 +22,10 @@ Current additions:
 
 --Psychic Strike (unfinished)
 
--Concentration Psionic Focus
+-Concentration Psionic Focus (unfinished)
 
 Feats;
 
--Wild Talent
+-Wild Talent (finished)
 
--Speed of Thought
+-Speed of Thought (finished)
